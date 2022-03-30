@@ -8,16 +8,11 @@ import 'package:afyon2/sayfalar/sayfa3.dart';
 import 'package:afyon2/sayfalar/sayfa4.dart';
 import 'package:afyon2/sayfalar/sayfa5.dart';
 import 'package:flutter/material.dart';
-import 'package:afyon2/sayfalar/drawe.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class NavigationDraweWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(
     horizontal: 20,
   );
-
-  get aemail => null;
-
   @override
   Widget build(BuildContext context) {
     final name = "Yusuf";
@@ -30,16 +25,16 @@ class NavigationDraweWidget extends StatelessWidget {
         color: Color.fromARGB(50, 75, 205, 1),
         child: ListView(
           children: <Widget>[
-            buildHeader(
-                image: image,
-                name: name,
-                email: email,
-                onClicked: () => Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>
-                        UserPage(image: image, name: name, email: email)))),
-            const SizedBox(
-              height: 20,
+            Expanded(
+              child: buildHeader(
+                  image: image,
+                  name: name,
+                  email: email,
+                  onClicked: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) =>
+                          UserPage(image: image, name: name, email: email)))),
             ),
+
             Container(
               padding: padding,
               child: Column(
@@ -50,7 +45,7 @@ class NavigationDraweWidget extends StatelessWidget {
                     onClicked: () => selectedItem(context, 0),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   buildMenuItem(
                     text: "insan",
@@ -58,7 +53,7 @@ class NavigationDraweWidget extends StatelessWidget {
                     onClicked: () => selectedItem(context, 0),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   buildMenuItem(
                     text: "insan",
@@ -66,7 +61,7 @@ class NavigationDraweWidget extends StatelessWidget {
                     onClicked: () => selectedItem(context, 0),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   buildMenuItem(
                     text: "beğeni",
@@ -74,7 +69,7 @@ class NavigationDraweWidget extends StatelessWidget {
                     onClicked: () => selectedItem(context, 0),
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   ),
                   Divider(color: Colors.white70),
                   buildMenuItem(
@@ -91,7 +86,7 @@ class NavigationDraweWidget extends StatelessWidget {
                     onClicked: () => selectedItem(context, 0),
                   ),
                   const SizedBox(
-                    height: 70,
+                    height: 10,
                   ),
                   Row(
                     children: [

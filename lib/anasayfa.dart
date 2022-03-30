@@ -27,69 +27,13 @@ class _AnasayfaState extends State<Anasayfa> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text(widget.name ?? ""),
+        ),
         backgroundColor: Colors.black12,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Hero(
-                  tag: 'topBarBtn',
-                  child: Card(
-                    elevation: 10,
-                    // shape: kBackButtonShape,
-                    child: MaterialButton(
-                      height: 50,
-                      minWidth: 50,
-                      elevation: 10,
-                      //shape: kBackButtonShape,
-                      onPressed: () {},
-                      //child: child,
-                    ),
-                  ),
-                ),
-                // SizedBox(
-                //   width: 50,
-                // ),
-                Hero(
-                  tag: 'title',
-                  transitionOnUserGestures: true,
-                  child: Card(
-                    elevation: 10,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(30),
-                      ),
-                    ),
-                    child: InkWell(
-                      onTap: () {
-                        NavigationDraweWidget;
-                      },
-                      child: Container(
-                        width: MediaQuery.of(context).size.width / 1.5,
-                        height: 50,
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 30),
-                            child: Text(
-                              widget.name ?? "",
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 25,
-                                // color: Colors.black54,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
             Expanded(
               child: Expanded(
                 flex: 2,

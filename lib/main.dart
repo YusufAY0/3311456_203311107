@@ -36,8 +36,8 @@ class _MyAppState extends State<MyApp> {
           children: [
             SizedBox(height: 500),
             Text("ADINIZ VE SOYADINIZ: "),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            Expanded(
+              // padding: const EdgeInsets.all(8.0),
               child: TextField(
                 keyboardType: TextInputType.text,
                 inputFormatters: [
@@ -59,8 +59,8 @@ class _MyAppState extends State<MyApp> {
                 onChanged: (val) => name = val,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            Expanded(
+              //padding: const EdgeInsets.all(8.0),
               child: TextField(
                 keyboardType: TextInputType.text,
                 inputFormatters: [
