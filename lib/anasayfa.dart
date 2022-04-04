@@ -1,16 +1,5 @@
 import 'package:afyon2/Galeri/galeridetay.dart';
-import 'package:afyon2/icon/my_flutter_app_icons.dart';
-import 'package:afyon2/sayfalar/insan.dart';
-import 'package:afyon2/sayfalar/sayfa.dart';
-import 'package:afyon2/sayfalar/sayfa2.dart';
-import 'package:afyon2/sayfalar/sayfa3.dart';
-import 'package:afyon2/sayfalar/sayfa4.dart';
-import 'package:afyon2/sayfalar/sayfa5.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'icon/my_flutter_app_icons.dart';
-import 'icon/instayoutubeface.dart';
 import 'sayfalar/drawe.dart';
 
 class Anasayfa extends StatefulWidget {
@@ -22,8 +11,6 @@ class Anasayfa extends StatefulWidget {
 }
 
 class _AnasayfaState extends State<Anasayfa> {
-  final padding = EdgeInsets.symmetric(horizontal: 20);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,8 +33,7 @@ class _AnasayfaState extends State<Anasayfa> {
                         fit: BoxFit.cover,
                       ),
                       border: Border.all(color: Colors.black, width: 0),
-                      borderRadius:
-                          BorderRadius.all(Radius.elliptical(900, 1090)),
+                      borderRadius: BorderRadius.all(Radius.elliptical(0, 0)),
                     ),
                     alignment: Alignment.center,
                   ),
@@ -60,7 +46,7 @@ class _AnasayfaState extends State<Anasayfa> {
               child: FlatButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => HomePage()));
+                      MaterialPageRoute(builder: (context) => Galeri()));
                 },
                 child: Container(
                   decoration: BoxDecoration(
@@ -69,8 +55,7 @@ class _AnasayfaState extends State<Anasayfa> {
                         fit: BoxFit.cover,
                       ),
                       border: Border.all(color: Colors.black, width: 0),
-                      borderRadius: BorderRadius.all(
-                          Radius.elliptical(11212121200, 11241250))),
+                      borderRadius: BorderRadius.all(Radius.elliptical(0, 0))),
                   alignment: Alignment.center,
                 ),
               ),
@@ -83,7 +68,7 @@ class _AnasayfaState extends State<Anasayfa> {
                   Expanded(
                       flex: 5,
                       child: FlatButton(
-                        onPressed: haberler,
+                        onPressed: () {},
                         child: Container(
                           decoration: BoxDecoration(
                             image: DecorationImage(
@@ -92,12 +77,10 @@ class _AnasayfaState extends State<Anasayfa> {
                             ),
                             border:
                                 Border.all(color: Colors.orange, width: 5.0),
-                            borderRadius:
-                                BorderRadius.all(Radius.elliptical(900, 1090)),
                           ),
                           alignment: Alignment.center,
                           child: Text(
-                            "haberler",
+                            "afyon",
                           ),
                         ),
                       )),
@@ -113,9 +96,6 @@ class _AnasayfaState extends State<Anasayfa> {
                             ),
                             border:
                                 Border.all(color: Colors.orange, width: 5.0),
-                            borderRadius: BorderRadius.all(
-                              Radius.elliptical(900, 1090),
-                            ),
                           ),
                           alignment: Alignment.center,
                           child: Text(
@@ -138,14 +118,6 @@ class _AnasayfaState extends State<Anasayfa> {
                       child: Container(
                         decoration: BoxDecoration(
                           color: Colors.green,
-                          border: Border.all(color: Colors.black, width: 00.0),
-                          borderRadius: new BorderRadius.all(
-                            Radius.elliptical(100, 50),
-                          ),
-                        ),
-                        alignment: Alignment.center,
-                        child: Text(
-                          "haberler",
                         ),
                       ),
                     ),
@@ -155,18 +127,6 @@ class _AnasayfaState extends State<Anasayfa> {
             ),
           ],
         ),
-        drawer: NavigationDraweWidget());
-  }
-}
-
-class MyTheme with ChangeNotifier {
-  static bool _isDark = true;
-  ThemeMode currentTheme() {
-    return _isDark ? ThemeMode.dark : ThemeMode.light;
-  }
-
-  void switchTheme() {
-    _isDark = !_isDark;
-    notifyListeners();
+        drawer: Navigation());
   }
 }

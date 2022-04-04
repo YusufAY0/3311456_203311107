@@ -1,129 +1,168 @@
-import 'package:afyon2/icon/instayoutubeface.dart';
-import 'package:afyon2/icon/my_flutter_app_icons.dart';
-import 'package:afyon2/sayfalar/insan.dart';
-import 'package:afyon2/sayfalar/kullan%C4%B1c%C4%B1.dart';
 import 'package:afyon2/sayfalar/sayfa.dart';
 import 'package:afyon2/sayfalar/sayfa2.dart';
 import 'package:afyon2/sayfalar/sayfa3.dart';
 import 'package:afyon2/sayfalar/sayfa4.dart';
 import 'package:afyon2/sayfalar/sayfa5.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'kullanıcı.dart';
 
-class NavigationDraweWidget extends StatelessWidget {
-  final padding = EdgeInsets.symmetric(
-    horizontal: 20,
-  );
+class Navigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final name = "Yusuf";
     final email = "ay.yussuf03@gmail.com";
     final image = "image/kapak.jpg";
-
     return Drawer(
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.black,
       child: Material(
-        color: Color.fromARGB(50, 75, 205, 1),
         child: ListView(
           children: <Widget>[
-            Expanded(
-              child: buildHeader(
-                  image: image,
-                  name: name,
-                  email: email,
-                  onClicked: () => Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) =>
-                          UserPage(image: image, name: name, email: email)))),
+            Padding(
+              padding: EdgeInsets.all(12.0),
             ),
-
             Container(
-              padding: padding,
               child: Column(
                 children: [
-                  buildMenuItem(
-                    text: "insan",
-                    icon: Icons.people,
-                    onClicked: () => selectedItem(context, 0),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  buildMenuItem(
-                    text: "insan",
-                    icon: Icons.workspaces_outline,
-                    onClicked: () => selectedItem(context, 0),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  buildMenuItem(
-                    text: "insan",
-                    icon: Icons.update,
-                    onClicked: () => selectedItem(context, 0),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  buildMenuItem(
-                    text: "beğeni",
-                    icon: Icons.favorite_border,
-                    onClicked: () => selectedItem(context, 0),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Divider(color: Colors.white70),
-                  buildMenuItem(
-                    text: "Pugins",
-                    icon: Icons.explore,
-                    onClicked: () => selectedItem(context, 0),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  buildMenuItem(
-                    text: "Pugins",
-                    icon: Icons.explore,
-                    onClicked: () => selectedItem(context, 0),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
                   Row(
                     children: [
-                      Expanded(
-                        flex: 1,
-                        child: IconButton(
-                          onPressed: facebook,
-                          icon: Icon(
-                            Icons.facebook,
-                            color: Colors.cyanAccent,
-                            size: 20,
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: IconButton(
-                          onPressed: youtube,
-                          icon: Icon(
-                            Icons.video_collection,
-                            color: Colors.red,
-                            size: 20,
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: IconButton(
-                          onPressed: insta,
-                          icon: Icon(
-                            MyFlutterApp.instagram,
-                            color: Colors.brown,
-                            size: 20,
+                      Container(
+                        child: Expanded(
+                          child: Row(
+                            children: [
+                              FlatButton(
+                                child: CircleAvatar(
+                                  radius: 20,
+                                  backgroundImage: AssetImage(image),
+                                ),
+                                onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => kullanici(
+                                            image: image,
+                                            name: name,
+                                          )));
+                                },
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    name,
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.black),
+                                  ),
+                                  FlatButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      email,
+                                      style: TextStyle(
+                                          fontSize: 15, color: Colors.black),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                       ),
                     ],
+                  ),
+                  Divider(
+                    height: 20,
+                    color: Colors.black,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => sayfa(),
+                        ));
+                      },
+                      icon: Icon(Icons.add),
+                    ),
+                  ),
+                  Divider(
+                    height: 20,
+                    color: Colors.black,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => sayfaiki(),
+                        ));
+                      },
+                      icon: Icon(Icons.add),
+                    ),
+                  ),
+                  Divider(
+                    height: 20,
+                    color: Colors.black,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => sayfauc(),
+                        ));
+                      },
+                      icon: Icon(Icons.add),
+                    ),
+                  ),
+                  Divider(
+                    height: 20,
+                    color: Colors.black,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => sayfadort(),
+                        ));
+                      },
+                      icon: Icon(Icons.add),
+                    ),
+                  ),
+                  Divider(
+                    height: 20,
+                    color: Colors.black,
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(12.0),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => sayfabes(),
+                        ));
+                      },
+                      icon: Icon(Icons.add),
+                    ),
+                  ),
+                  Divider(
+                    height: 20,
+                    color: Colors.black,
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
                 ],
               ),
@@ -132,112 +171,5 @@ class NavigationDraweWidget extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Widget buildHeader({
-    required String image,
-    required String name,
-    required String email,
-    required VoidCallback onClicked,
-  }) =>
-      InkWell(
-        onTap: onClicked,
-        child: Container(
-          padding: padding.add(EdgeInsets.symmetric(vertical: 40)),
-          child: Expanded(
-            child: Row(
-              children: [
-                CircleAvatar(
-                  radius: 30,
-                  backgroundImage: AssetImage(image),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      name,
-                      style: TextStyle(fontSize: 15, color: Colors.white),
-                    ),
-                    FlatButton(
-                      onPressed: mail,
-                      child: Text(
-                        email,
-                        style: TextStyle(fontSize: 15, color: Colors.white),
-                      ),
-                    ),
-                  ],
-                ),
-                Spacer(),
-              ],
-            ),
-          ),
-        ),
-      );
-
-  Widget buildMenuItem({
-    VoidCallback? onClicked,
-    required String text,
-    required IconData icon,
-  }) {
-    final color = Colors.white;
-    return ListTile(
-      leading: Icon(icon, color: color),
-      title: Text(
-        text,
-        style: TextStyle(color: color),
-      ),
-      onTap: onClicked,
-    );
-  }
-
-  void selectedItem(BuildContext context, int index) {
-    Navigator.of(context).pop();
-    switch (index) {
-      case 0:
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => insanSayfa(),
-          ),
-        );
-        break;
-      case 1:
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => sayfa(),
-          ),
-        );
-        break;
-      case 2:
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => sayfaiki(),
-          ),
-        );
-        break;
-      case 3:
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => sayfauc(),
-          ),
-        );
-        break;
-      case 4:
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => sayfadort(),
-          ),
-        );
-        break;
-      case 5:
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => sayfabes(),
-          ),
-        );
-        break;
-    }
   }
 }

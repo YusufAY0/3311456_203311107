@@ -1,17 +1,13 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
-class UserPage extends StatelessWidget {
+class kullanici extends StatelessWidget {
   final String name;
-  final String email;
   final String image;
 
-  const UserPage({
+  kullanici({
     Key? key,
     required this.image,
     required this.name,
-    required this.email,
   }) : super(key: key);
 
   @override
@@ -19,11 +15,11 @@ class UserPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text(name),
+        title: Text("AFYON"),
         centerTitle: true,
       ),
       body: Image.asset(
-        image,
+        "image/kapak.jpg",
         width: double.infinity,
         height: double.infinity,
         fit: BoxFit.cover,
